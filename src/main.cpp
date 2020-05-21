@@ -2,6 +2,42 @@
 #include <iostream>
 #include <algorithm>
 #include <wsjcpp_core.h>
+#include <wsjcpp_dto.h>
+
+class WsjcppDtoPerson : public WsjcppDefineDto {
+    public:
+        WsjcppDtoPerson() : WsjcppDefineDto("person", "Person") {
+            // requireField<WsjcppDtoString>("name", "Name of person");
+            requireField<WsjcppDtoString>("name", "Name of person");
+            optionalField<WsjcppDtoInteger>("age", "Age of person");
+        };
+};
+
+class WsjcppDtoUserProfile : public WsjcppDefineDto {
+    public:
+        WsjcppDtoUserProfile() : WsjcppDefineDto("user_profile", "User Profile") {
+            // requireField<WsjcppDtoString>("name", "Name of person");
+            requireField<WsjcppDtoInteger>("userid", "User Id");
+            requireField<WsjcppDtoString>("", "Current Page");
+            // requireField<WsjcppDtoPerson>("person", "Total");
+            // TODO array
+            // requireField<WsjcppDtoString>("name", "Name of person");
+            // optionalField<WsjcppDtoPerson>("age", "Age of person");
+        };
+};
+
+class WsjcppDtoPersonsPage : public WsjcppDefineDto {
+    public:
+        WsjcppDtoPersonsPage() : WsjcppDefineDto("persons_page", "Persons page") {
+            // requireField<WsjcppDtoString>("name", "Name of person");
+            requireField<WsjcppDtoInteger>("page", "Current Page");
+            requireField<WsjcppDtoInteger>("onpage", "Nomebr per page");
+            requireField<WsjcppDtoInteger>("total", "Total");
+            // TODO array
+            // requireField<WsjcppDtoString>("name", "Name of person");
+            // optionalField<WsjcppDtoPerson>("age", "Age of person");
+        };
+};
 
 int main(int argc, const char* argv[]) {
     std::string TAG = "MAIN";
@@ -13,6 +49,11 @@ int main(int argc, const char* argv[]) {
     WsjcppLog::setPrefixLogFile("wsjcpp");
     WsjcppLog::setLogDirectory(".logs");
     // TODO your code here
+
+    WsjcppDtoPerson p;
+    p.setFieldStringValue("name", "value");
+    p.setFieldIntegerValue("age", 1);
+    std::cout << p.toJson().dump() << std::endl;
     return 0;
 }
 

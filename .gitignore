@@ -1,6 +1,8 @@
 .wsjcpp/*
 wsjcpp-dto
 tmp/*
+.logs/*
+.vscode/*
 
 # Prerequisites
 *.d
