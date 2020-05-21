@@ -1,3 +1,7 @@
+.wsjcpp/*
+wsjcpp-dto
+tmp/*
+
 # Prerequisites
 *.d
 
