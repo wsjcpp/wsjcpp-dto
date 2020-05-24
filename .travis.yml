@@ -17,6 +17,7 @@ addons:
 # Build steps
 script:
   - ./build_simple.sh
+  - ./wsjcpp-dto
   - cd unit-tests.wsjcpp
   - ./build_simple.sh
   - ./unit-tests

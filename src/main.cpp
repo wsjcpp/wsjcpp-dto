@@ -4,18 +4,18 @@
 #include <wsjcpp_core.h>
 #include <wsjcpp_dto.h>
 
-class WsjcppDtoPerson : public WsjcppDefineDto {
+class WsjcppDtoPerson : public WsjcppDto {
     public:
-        WsjcppDtoPerson() : WsjcppDefineDto("person", "Person") {
+        WsjcppDtoPerson() : WsjcppDto("person", "Person") {
             // requireField<WsjcppDtoString>("name", "Name of person");
             requireField<WsjcppDtoString>("name", "Name of person");
             optionalField<WsjcppDtoInteger>("age", "Age of person");
         };
 };
 
-class WsjcppDtoUserProfile : public WsjcppDefineDto {
+class WsjcppDtoUserProfile : public WsjcppDto {
     public:
-        WsjcppDtoUserProfile() : WsjcppDefineDto("user_profile", "User Profile") {
+        WsjcppDtoUserProfile() : WsjcppDto("user_profile", "User Profile") {
             // requireField<WsjcppDtoString>("name", "Name of person");
             requireField<WsjcppDtoInteger>("userid", "User Id");
             requireField<WsjcppDtoString>("", "Current Page");
@@ -26,9 +26,9 @@ class WsjcppDtoUserProfile : public WsjcppDefineDto {
         };
 };
 
-class WsjcppDtoPersonsPage : public WsjcppDefineDto {
+class WsjcppDtoPersonsPage : public WsjcppDto {
     public:
-        WsjcppDtoPersonsPage() : WsjcppDefineDto("persons_page", "Persons page") {
+        WsjcppDtoPersonsPage() : WsjcppDto("persons_page", "Persons page") {
             // requireField<WsjcppDtoString>("name", "Name of person");
             requireField<WsjcppDtoInteger>("page", "Current Page");
             requireField<WsjcppDtoInteger>("onpage", "Nomebr per page");

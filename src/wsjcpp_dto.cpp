@@ -80,9 +80,9 @@ WsjcppDtoInteger::WsjcppDtoInteger(const std::string &sName, const std::string &
 }
 
 // ---------------------------------------------------------------------
-// WsjcppDefineDto
+// WsjcppDto
 
-WsjcppDefineDto::WsjcppDefineDto(const std::string &sTypeName, const std::string &sDescription) {
+WsjcppDto::WsjcppDto(const std::string &sTypeName, const std::string &sDescription) {
     TAG = "DTO-" + sTypeName;
     m_sTypeName = sTypeName;
     m_sDescription = sDescription;
@@ -90,19 +90,19 @@ WsjcppDefineDto::WsjcppDefineDto(const std::string &sTypeName, const std::string
 
 // ---------------------------------------------------------------------
 
-const std::string &WsjcppDefineDto::getTypeName() {
+const std::string &WsjcppDto::getTypeName() {
     return m_sTypeName;
 }
 
 // ---------------------------------------------------------------------
 
-const std::string &WsjcppDefineDto::getDescription() {
+const std::string &WsjcppDto::getDescription() {
     return m_sDescription;
 }
 
 // ---------------------------------------------------------------------
 
-bool WsjcppDefineDto::setFieldStringValue(const std::string &sFieldName, const std::string &sFieldValue) {
+bool WsjcppDto::setFieldStringValue(const std::string &sFieldName, const std::string &sFieldValue) {
     WsjcppDefineFieldDto *pField = this->findFieldByName(sFieldName);
     if (pField == nullptr) {
         WsjcppLog::throw_err(TAG, "Object '" + m_sTypeName + "' has not field '" + sFieldName + "'");
@@ -117,7 +117,7 @@ bool WsjcppDefineDto::setFieldStringValue(const std::string &sFieldName, const s
 
 // ---------------------------------------------------------------------
 
-bool WsjcppDefineDto::setFieldIntegerValue(const std::string &sFieldName, int nValue) {
+bool WsjcppDto::setFieldIntegerValue(const std::string &sFieldName, int nValue) {
     WsjcppDefineFieldDto *pField = this->findFieldByName(sFieldName);
     if (pField == nullptr) {
         WsjcppLog::throw_err(TAG, "Object '" + m_sTypeName + "' has not field '" + sFieldName + "'");
@@ -130,7 +130,7 @@ bool WsjcppDefineDto::setFieldIntegerValue(const std::string &sFieldName, int nV
 
 // ---------------------------------------------------------------------
 
-bool WsjcppDefineDto::setFieldBooleanValue(const std::string &sFieldName, bool bValue) {
+bool WsjcppDto::setFieldBooleanValue(const std::string &sFieldName, bool bValue) {
     WsjcppDefineFieldDto *pField = this->findFieldByName(sFieldName);
     if (pField == nullptr) {
         WsjcppLog::throw_err(TAG, "Object '" + m_sTypeName + "' has not field '" + sFieldName + "'");
@@ -143,7 +143,7 @@ bool WsjcppDefineDto::setFieldBooleanValue(const std::string &sFieldName, bool b
 
 // ---------------------------------------------------------------------
 
-bool WsjcppDefineDto::setFieldJsonValue(const std::string &sFieldName, const nlohmann::json &jsonFieldValue) {
+bool WsjcppDto::setFieldJsonValue(const std::string &sFieldName, const nlohmann::json &jsonFieldValue) {
     WsjcppDefineFieldDto *pField = this->findFieldByName(sFieldName);
     if (pField == nullptr) {
         WsjcppLog::throw_err(TAG, "Object '" + m_sTypeName + "' has not field '" + sFieldName + "'");
@@ -156,19 +156,19 @@ bool WsjcppDefineDto::setFieldJsonValue(const std::string &sFieldName, const nlo
 
 // ---------------------------------------------------------------------
 
-bool WsjcppDefineDto::fillFromJson(nlohmann::json &jsonData, std::string &sError) {
+bool WsjcppDto::fillFromJson(nlohmann::json &jsonData, std::string &sError) {
     return false;
 }
 
 // ---------------------------------------------------------------------
 
-nlohmann::json WsjcppDefineDto::toJson() {
+nlohmann::json WsjcppDto::toJson() {
     return m_jsonReadyObject;
 }
 
 // ---------------------------------------------------------------------
 
-WsjcppDefineFieldDto *WsjcppDefineDto::findFieldByName(const std::string &sFieldName) {
+WsjcppDefineFieldDto *WsjcppDto::findFieldByName(const std::string &sFieldName) {
     for (int i = 0; i < m_vFields.size(); i++) {
         if (m_vFields[i]->getFieldName() == sFieldName) {
             return m_vFields[i];

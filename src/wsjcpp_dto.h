@@ -63,11 +63,11 @@ class WsjcppDtoBoolean : public WsjcppDefineFieldDto {
 };
 
 // ---------------------------------------------------------------------
-// WsjcppDefineDto - parent class for Data Transfer Objects
+// WsjcppDto - parent class for Data Transfer Objects
 
-class WsjcppDefineDto {
+class WsjcppDto {
     public:
-        WsjcppDefineDto(const std::string &sTypeName, const std::string &sDescription);
+        WsjcppDto(const std::string &sTypeName, const std::string &sDescription);
         const std::string &getTypeName();
         const std::string &getDescription();
 
@@ -114,7 +114,6 @@ class WsjcppDefineDto {
         std::string TAG;
         std::string m_sTypeName;
         std::string m_sDescription;
-        
         
         std::vector<WsjcppDefineFieldDto *> m_vFields;
         nlohmann::json m_jsonReadyObject;

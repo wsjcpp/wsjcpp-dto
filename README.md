@@ -6,25 +6,24 @@ Helper classes for create C++ Data Transfer Object
 
 ## Integrate to your project
 
-Include this files:
-
-* src.wsjcpp/nlohmann_json/json.hpp
-* src/wsjcpp_dto.h
-* src/wsjcpp_dto.cpp
-
-Or use a `wsjcpp`:
+Use a `wsjcpp`:
 
 ```
 $ wsjcpp install https://github.com/wsjcpp/wsjcpp-dto:master
 ```
 
-## How to use:
+Or include this files:
+
+* src.wsjcpp/nlohmann_json/json.hpp
+* src/wsjcpp_dto.h
+* src/wsjcpp_dto.cpp
+
+## How to use
 
 ```
-class WsjcppDtoPerson : public WsjcppDefineDto {
+class WsjcppDtoPerson : public WsjcppDto {
     public:
-        WsjcppDtoPerson() : WsjcppDefineDto("person", "Person") {
-            // requireField<WsjcppDtoString>("name", "Name of person");
+        WsjcppDtoPerson() : WsjcppDto("person", "Person") {
             requireField<WsjcppDtoString>("name", "Name of person");
             optionalField<WsjcppDtoInteger>("age", "Age of person");
         };

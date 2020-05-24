@@ -35,9 +35,13 @@ list (APPEND WSJCPP_SOURCES "../src.wsjcpp/nlohmann_json/json.hpp")
 
 # wsjcpp-dto:v0.0.1
 list (APPEND WSJCPP_INCLUDE_DIRS "../src")
+list (APPEND WSJCPP_SOURCES "../src/wsjcpp_dto.h")
+list (APPEND WSJCPP_SOURCES "../src/wsjcpp_dto.cpp")
 
 # unit-tests
 list (APPEND WSJCPP_INCLUDE_DIRS "src")
+list (APPEND WSJCPP_SOURCES "../unit-tests.wsjcpp/src/unit_test_dto_person.h")
+list (APPEND WSJCPP_SOURCES "../unit-tests.wsjcpp/src/unit_test_dto_person.cpp")
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.user-custom.txt)
 

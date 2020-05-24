@@ -3,14 +3,18 @@ version: "v0.0.1"
 cmake_minimum_required: "3.0"
 cmake_cxx_standard: "11"
 description: "Helper classes for create C++ Data Transfer Object "
+
 authors:
   - name: "Evgenii Sopov"
     email: "mrseakg@gmail.com"
+
 origins:
   - address: "https://sea-kg.com/wsjcpp-package-registry/"
     type: "package-registry"
+
 keywords:
   - "c++"
+
 dependencies:
   - name: "wsjcpp-core"
     version: "v0.1.5"
@@ -22,3 +26,16 @@ dependencies:
     url: "https://github.com/nlohmann/json:develop"
     origin: "https://github.com/"
     installation-dir: "./src.wsjcpp/nlohmann_json"
+
+unit-tests:
+  cases:
+    - name: "DtoPerson"
+      description: "Test DtoPerson"
+
+distribution:
+  - source-file: "src/wsjcpp_dto.h"
+    target-file: "wsjcpp_dto.h"
+    type: "source-code"
+  - source-file: "src/wsjcpp_dto.cpp"
+    target-file: "wsjcpp_dto.cpp"
+    type: "source-code"
