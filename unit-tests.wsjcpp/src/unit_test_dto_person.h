@@ -7,8 +7,9 @@
 class UnitTestDtoPerson : public WsjcppUnitTestBase {
     public:
         UnitTestDtoPerson();
-        virtual void init();
-        virtual bool run();
+        virtual bool doBeforeTest() override;
+        virtual void executeTest() override;
+        virtual bool doAfterTest() override;
 };
 
 #endif // UNIT_TEST_DTO_PERSON_H

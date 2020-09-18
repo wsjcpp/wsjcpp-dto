@@ -11,8 +11,9 @@ UnitTestDtoPerson::UnitTestDtoPerson()
 
 // ---------------------------------------------------------------------
 
-void UnitTestDtoPerson::init() {
+bool UnitTestDtoPerson::doBeforeTest() {
     // nothing
+    return true;
 }
 
 // ---------------------------------------------------------------------
@@ -27,14 +28,18 @@ class WsjcppDtoPerson : public WsjcppDto {
 
 // ---------------------------------------------------------------------
 
-bool UnitTestDtoPerson::run() {
-    bool bTestSuccess = true;
+void UnitTestDtoPerson::executeTest() {
     WsjcppDtoPerson p;
     p.setFieldStringValue("name", "John Smith");
     p.setFieldIntegerValue("age", 21);
     std::string sJsonGot = p.toJson().dump();
     std::string sJsonExpected = "{\"age\":21,\"name\":\"John Smith\"}";
-    compareS(bTestSuccess, "WsjcppDtoPerson", sJsonGot, sJsonExpected);
-    return bTestSuccess;
+    compare("WsjcppDtoPerson", sJsonGot, sJsonExpected);
 }
 
+// ---------------------------------------------------------------------
+
+bool UnitTestDtoPerson::doAfterTest() {
+    // nothing
+    return true;
+}
